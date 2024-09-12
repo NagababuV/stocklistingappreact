@@ -1,0 +1,54 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .stock-list-container {
+    height: 70vh; /* Adjust based on your requirements */
+    overflow-y: auto;
+  }
+  
+  .stock-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .stock-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .dropdown-country {
+    margin-left: auto;
+  }
+  
+  .stock-actions button {
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .stock-actions .btn-outline-primary {
+    color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .stock-actions .btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .stock-actions .btn-outline-primary:hover {
+    background-color: #e7f0ff; /* Light blue */
+  }
+  
+  .stock-actions .btn-outline-danger:hover {
+    background-color: #d4edda; /* Light green */
+  }
+  
+  .stock-actions .btn-outline-primary .fa-star,
+  .stock-actions .btn-outline-danger .fa-heart {
+    margin-right: 5px;
+  }
+  

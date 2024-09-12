@@ -1,0 +1,16 @@
+.header {
+    position: relative;
+  }
+  
+  .username {
+    position: absolute;
+    right: 120px; /* Adjust as needed */
+    top: 0;
+  }
+  
+  .signout {
+    position: absolute;
+    right: 20px; /* Adjust as needed */
+    top: 0;
+  }
+  
