@@ -49,7 +49,6 @@ function Dashboard() {
     try {
       const response = await apiService.getStocks(country);
       if (response.data) {
-        // Filter stocks by unique symbol and exchange combination
         const uniqueStocks = response.data.reduce((acc, current) => {
           const exists = acc.find(stock => stock.symbol === current.symbol && stock.exchange === current.exchange);
           if (!exists) {
@@ -85,15 +84,14 @@ function Dashboard() {
   };
 
   const addToFavorites = async (stock) => {
-    if (favorites.some(item => item.symbol === stock.symbol)) {
-      toast.warn(`${stock.name} is already in your favorites.`);
-      return;
-    }
-
     try {
-      await apiService.addToFavorites(username, stock);
-      setFavorites([...favorites, stock]);
-      toast.success(`${stock.name} added to favorites.`);
+      const response = await apiService.addToFavorites(username, stock);
+      if (response.status === 200) {
+        setFavorites([...favorites, stock]);
+        toast.success(`${stock.name} added to favorites.`);
+      } else if (response.status === 208) {  // Handling 208 Already Reported
+        toast.warn(`${stock.name} is already in your favorites.`);
+      }
     } catch (error) {
       toast.error("Failed to add to favorites.");
     }
